@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import Grid from "@material-ui/core/Grid"
 import { withStyles } from "@material-ui/styles"
 import { Typography } from "@material-ui/core"
@@ -15,6 +15,12 @@ const styles = ({
         
     },
 })
+
+// if (typeof window !== `undefined`) {
+//     window.onbeforeunload = () => {
+//         navigate("/")
+//     }
+// }
 
 const SearchResult = ({classes, data}) => {
     const [expanded, setExpanded] = React.useState(false)
@@ -36,7 +42,7 @@ const SearchResult = ({classes, data}) => {
     }
     return(
         <div className={classes.searchResult}>
-            <Link to="#"><Typography variant="h6">{data.Title}</Typography></Link>
+            <Typography variant="h6" style={{color:"blue", textDecoration: "underline"}}>{data.Title}</Typography>
             <Typography variant="body1">{data.Unit}, {data.Frequency}, {data.Source}</Typography>
             <Typography variant="body2" id={data.Title + "description"}>
                 {data.Description.split(". ")[0] + ". " + data.Description.split(". ")[1] + ". "}

@@ -183,7 +183,7 @@ const SearchResultsContainer = ({classes, location}) => {
         <Grid container>
             <Grid item xs={12} className={classes.header}>
                 <Typography variant="h5" style={{paddingBottom:"1rem"}}>Search Results</Typography>
-                <Typography variant="body2">Displaying {searchResults.length} results for <strong>{location.state.query}</strong>.</Typography>
+                <Typography variant="body2">Displaying {searchResults.length} results for <strong>{location.state != undefined ? location.state.query : ""}</strong>.</Typography>
             </Grid>
             <Grid xs={12} className={classes.header} style={{height:"2rem", borderBottom:"0.1rem solid #e8e8e8"}}>
             </Grid>
